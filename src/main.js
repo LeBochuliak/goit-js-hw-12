@@ -45,8 +45,10 @@ formBtn.addEventListener('click', async e => {
         if (response.totalPages === 0) {
             return;
         }
-        if (response.totalPages > page) {
+        if (response.totalPages >= page) {
             renderImages(response.hits);
+        }
+        if (response.totalPages > page) {
             galleryBtn.classList.remove('hidden');
         }
     } catch (error) {
