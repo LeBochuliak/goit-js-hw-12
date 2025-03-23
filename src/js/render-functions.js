@@ -1,11 +1,10 @@
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
-const gallery = document.querySelector(".gallery");
+const gallery = document.querySelector('.gallery');
 
-export const lightbox = new SimpleLightbox(".gallery-link", {
-    captionsData: "alt",
-    
+export const lightbox = new SimpleLightbox('.gallery-link', {
+    captionsData: 'alt',
 });
 
 export default function renderImages(images) {
@@ -13,8 +12,8 @@ export default function renderImages(images) {
         return;
     } else {
         const markup = images
-        .map((image) => {
-            return `
+            .map(image => {
+                return `
                 <li class="gallery-item">
                     <a class="gallery-link" href="${image.largeImageURL}">
                         <img           
@@ -42,13 +41,10 @@ export default function renderImages(images) {
                         </div>
                     </div>
                 </li>
-            `
+            `;
             })
-        .join("");
-    gallery.insertAdjacentHTML("beforeend", markup);
-    lightbox.refresh();
+            .join('');
+        gallery.insertAdjacentHTML('beforeend', markup);
+        lightbox.refresh();
     }
-    }
-
-    
-
+}
